@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malware Analysis Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .result {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            /* Default color */
+            color: black;
+        }
+        .result.malware {
+            color: red;
+        }
+        .result.Safe {
+            color: green;
+        }
+        .back-button {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Analysis Result</h2>
+    <div class="result {% if result == 'Malware' %} malware {% else %} Safe {% endif %}">
+        {{ result }}
+    </div>
+    <a class="back-button" href="/">Back to Home</a>
+</div>
+
+</body>
+</html>
 
