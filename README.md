@@ -102,6 +102,93 @@ This tool integrates two key methods to detect potential threats, providing user
 - [DEMO](#demo)
 - Focused on executable files (.exe and .dll), using machine learning and feature extraction to identify malicious behavior.
 
+
+## Machine Learning-Based Detection
+
+The **Machine Learning-Based Detection** component leverages a machine learning model trained to detect malicious behavior in executable files. By focusing on feature extraction from Portable Executable (PE) headers, this tool offers an advanced, ML-powered approach to identify malware within `.exe` and `.dll` files.
+
+---
+
+### Technologies Used
+
+This module uses the following technologies:
+
+- **Python**: The core programming language for implementing feature extraction and model training.
+- **Scikit-Learn**: Used to train and evaluate the machine learning model, specifically the Random Forest Classifier.
+- **Flask**: Provides the web interface to upload files and view detection results.
+- **NumPy** and **Pandas**: For data manipulation and feature processing.
+- **Matplotlib**: To visualize model performance metrics and learning curves.
+
+---
+
+### Feature Selection and Model Training
+
+The model focuses on the most important features extracted from the PE headers of executable files. Here’s an overview of the key processes:
+
+1. **Feature Extraction**: PE header features are extracted from each file to create the feature set.
+2. **Feature Selection**: Important features are selected based on importance scores from a Random Forest Classifier. Only the most relevant features are retained to optimize model accuracy.
+3. **Model Training**: A Random Forest model is trained on the filtered feature set, allowing it to distinguish between benign and malicious executables with high precision.
+
+**Model Performance**  
+| Metric         | Precision | Recall | F1-score | Accuracy |
+|----------------|-----------|--------|----------|----------|
+| **Benign**     | 1.00      | 0.97   | 0.98     | 1003     |
+| **Malware**    | 0.99      | 1.00   | 0.99     | 2920     |
+| **Overall**    | -         | -      | -        | 99%      |
+
+---
+
+### File Types Supported
+
+This feature is specifically designed for the following file types:
+
+- **Executable files**: `.exe`, `.dll`
+
+---
+
+### DEMO
+
+Below is a visual walkthrough showing how the **Machine Learning-Based Detection** feature works.
+
+**Upload Page**  
+![Upload Page](path/to/upload_page_image.png)  
+*Description: The user selects an executable file for analysis.*
+
+**Analysis Results**  
+![Analysis Results](path/to/analysis_results_image.png)  
+*Description: Results of the ML-based detection showing whether the file is benign or malicious.*
+
+> **Video Demo**  
+> For a detailed walkthrough, watch the video below:  
+> [![Watch the Demo](path/to/video_thumbnail.png)](link_to_video)
+
+---
+
+### How It Works
+
+1. **File Upload**: The user uploads an executable file (.exe or .dll) for ML-based analysis.
+2. **Feature Extraction**: The system extracts PE header features and selects only the most important features based on prior analysis.
+3. **Model Prediction**: The Random Forest model uses the extracted features to predict if the file is benign or malicious.
+4. **Result Display**: The application displays the result on a user-friendly interface, including probability scores and model confidence.
+
+---
+
+### Benefits of Machine Learning-Based Detection
+
+- **High Precision**: The model achieves high accuracy in detecting malware, minimizing false positives.
+- **Automated Feature Selection**: Uses the most relevant features for analysis, improving both speed and accuracy.
+- **Focused Detection**: Designed specifically for executables, ensuring optimized and reliable detection for a key threat vector.
+
+This ML-based approach complements the static analysis, providing a comprehensive toolkit for malware detection.
+
+---
+
+**Note**: The accuracy and precision of the model are validated on a balanced dataset, ensuring reliable performance on new and unseen data.
+
+---
+
+
+
 ## Technologies Used
 
 - Python
