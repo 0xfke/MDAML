@@ -8,10 +8,9 @@ The Malware Analysis and Detection web app is created to address the need for an
 
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Feature Selection and Model Training](#feature-selection-and-model-training)
 - [File Types Supported](#file-types-supported)
-- [Screenshots](#screenshots)
+- [DEMO](#demo)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -86,17 +85,19 @@ The bar chart below displays the average training and validation scores along wi
 
 By analyzing these scores and visualizations, we gain insight into the model's learning behavior and can make informed decisions for further improvements.
 
+
+
+
+## DEMO
+
+
+
 ## File Types Supported
 
     Executable files: .exe, .dll
     Archive files: .zip, .tar
 
-Screenshots
-Upload Page
-
-Analysis Results
-
-Contributing
+## Contributing
 
 Contributions are welcome! If you'd like to contribute, please follow these steps:
 
