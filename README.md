@@ -55,7 +55,8 @@ Below is a quick walkthrough demonstrating the **Static Analysis using API** fea
 *Description: A user selects a file from their local directory for analysis.*
 
 **Result Page**  
-![Result Page](path/to/result_page_image.png)  
+![Result Page](Image/apiresult1.png)
+![Result Page](Image/apiresult2.png)
 *Description: Analysis results showing threat intelligence based on VirusTotal’s database.*
 
 > **Video Demo**  
