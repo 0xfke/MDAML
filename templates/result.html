@@ -4,63 +4,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Malware Analysis Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+        /* Ensures the body takes the full height of the viewport */
+        html, body {
+            height: 100%;
             margin: 0;
-            padding: 20px;
         }
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: #f4f7fa; /* Match background color */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
         }
-        h2 {
+        body.dark-mode {
+            background-color: #343a40; /* Match dark mode background */
+            color: #f8f9fa; /* Match dark mode text color */
+        }
+        .footer {
+            padding: 20px; /* Match footer padding */
             text-align: center;
+            /* background-color: #f1f1f1e7;  Match footer background */
+           /*  border-top: 1px solid #ccc; /* Match footer border */
+           /* margin-top: auto; /* Push footer to the bottom */
         }
-        .result {
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-            /* Default color */
-            color: black;
+        .alert {
+            border-radius: 8px; /* Rounded corners for alerts */
         }
-        .result.malware {
-            color: red;
-        }
-        .result.Safe {
-            color: green;
-        }
-        .back-button {
-            display: block;
-            width: 100%;
-            margin-top: 20px;
-            padding: 10px;
-            text-align: center;
-            background-color: #007bff;
+        .btn-analyze {
+            background-image: linear-gradient(45deg, #1d8cf8, #3358f4);
             color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .back-button:hover {
-            background-color: #0056b3;
+            transition: background-color 0.3s ease;
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <h2>Analysis Result</h2>
-    <div class="result {% if result == 'Malware' %} malware {% else %} Safe {% endif %}">
-        {{ result }}
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="text-center mb-4">Analysis Result</h1>
+        <button id="toggleDarkMode" class="btn btn-secondary">
+            <i class="fas fa-moon"></i>
+        </button>
     </div>
-    <a class="back-button" href="/">Back to Home</a>
+
+    <div class="mt-4">
+        {% if result.type == "file" %}
+            {% if result.prediction == "Malware" %}
+                <div class="alert alert-danger text-center" role="alert">
+                    <i class="bi bi-exclamation-triangle-fill"></i> Malware Detected in File: {{ result.file_name }}! Please take caution.
+                </div>
+            {% else %}
+                <div class="alert alert-success text-center" role="alert">
+                    <i class="bi bi-shield-check-fill"></i> No Malware Detected in File: {{ result.file_name }}! Your file is clean.
+                </div>
+            {% endif %}
+        {% elif result.type == "virustotal" %}
+            <div class="alert {{ 'alert-danger' if result.positives > 0 else 'alert-success' }} text-center" role="alert">
+                {% if result.positives > 0 %}
+                    <i class="bi bi-exclamation-triangle-fill"></i> Malware Detected in: {{ result.file_name }}!
+                    <p>Positives: {{ result.positives }} out of {{ result.total }} scanners.</p>
+                {% else %}
+                    <i class="bi bi-shield-check-fill"></i> No Malware Detected in: {{ result.file_name }}! Your submission is clean.
+                {% endif %}
+            </div>
+        {% elif result.type == "url" %}
+            <div class="alert {{ 'alert-danger' if result.positives > 0 else 'alert-success' }} text-center" role="alert">
+                {% if result.positives > 0 %}
+                    <i class="bi bi-exclamation-triangle-fill"></i> Malware Detected in URL: {{ result.url }}!
+                    <p>Positives: {{ result.positives }} out of {{ result.total }} scanners.</p>
+                {% else %}
+                    <i class="bi bi-shield-check-fill"></i> No Malware Detected in URL: {{ result.url }}! Your URL is clean.
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="alert alert-warning text-center" role="alert">
+                <i class="bi bi-exclamation-circle-fill"></i> No results available.
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Back to Home button -->
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-analyze btn-lg mt-4 shadow">
+            <i class="btn-analyze bi bi-arrow-repeat"></i> Analyze Another File.
+        </a>
+    </div>
 </div>
 
+<!-- Footer -->
+<div class="footer">
+    <p>&copy; 2024 Malware Analysis Tool. All Rights Reserved by B & L.</p>
+</div>
+
+<!-- Bootstrap and Icons JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+<script>
+    const toggleDarkModeBtn = document.getElementById('toggleDarkMode');
+    const body = document.body;
+
+    function toggleDarkMode() {
+        body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+        toggleDarkModeBtn.innerHTML = body.classList.contains('dark-mode') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    }
+
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+        toggleDarkModeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
+    toggleDarkModeBtn.addEventListener('click', toggleDarkMode);
+</script>
 </body>
 </html>
-

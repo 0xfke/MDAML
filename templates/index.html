@@ -3,62 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malware Detection</title>
+    <title>Malware Analysis Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        /* Custom styling */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
+            background-color: #f8f9fa;
+            transition: background-color 0.3s, color 0.3s;
             padding: 20px;
         }
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        body.dark-mode {
+            background-color: #343a40;
+            color: #f8f9fa;
         }
-        h2 {
-            text-align: center;
+        .bash-output {
+            background-color: #000;
+            color: #0f0;
+            padding: 10px;
+            font-family: monospace;
+            height: 400px;
+            overflow-y: scroll;
         }
-        .error {
-            color: red;
-            text-align: center;
+    /* Box styling for file upload */
+        .file-upload {
+    border: 2px solid #6c757d;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa9d;
+    margin-bottom: 20px;
+    text-align: center; /* Center text within the box */
+}
+
+.square-upload {
+    width: 310px;
+    height: 310px;
+    background-color: #f8f9fad6;
+    border: 2px dashed #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    margin: auto;
+}
+
+/* Styling for drag-and-drop text */
+.drag-drop-text {
+    color: #6c757d;
+    font-size: 14px;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.square-upload input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+        .loading-spinner {
+            display: none;
         }
-        form {
-            display: flex;
-            flex-direction: column;
+        .card-header {
+            background-color: #2534ff;
+            color: #fff;
         }
-        input[type="file"] {
+        .card {
             margin-bottom: 20px;
         }
-        button {
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .dark-mode .card-header {
+            background-color: #495057;
         }
-        button:hover {
-            background-color: #0056b3;
+        .modal-body, .modal-title {
+            color: #000;
         }
+        /* Resize modal pie chart */
+        .modal canvas {
+            max-width: 400px !important;
+            max-height: 400px !important;
+            margin: auto;
+        }
+        header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100vw;
+
+}
+
+header h1 {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
     </style>
+    
 </head>
 <body>
+    <header>
+        <h1>Malware Detection Using Machine Learning</h1>
+        <nav>
+            <a href="https://cfdptbbt-5000.uks1.devtunnels.ms/">Home</a>
+            <a href="#">Dynamic-Analysis</a>
+            <a href="#">Awareness </a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+<div class="container mt-5">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center">
+        <h1 class="text-center">Malware Analysis Tool</h1>
+        <button id="toggleDarkMode" class="btn btn-secondary">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
 
-<div class="container">
-    <h2>Upload a File for Detection</h2>
-    {% if error %}
-    <div class="error">{{ error }}</div>
-    {% endif %}
-    <form action="/analyze" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" required>
-        <button type="submit">Analyze</button>
-    </form>
+    <!-- Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="alert alert-danger">
+                {% for category, message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="row">
+        <!-- File Upload and Analysis Form -->
+        <div class="col-md-6">
+            <form id="analysisForm" action="/analyze" method="post" enctype="multipart/form-data" class="mb-4">
+                <div class="file-upload">
+                     <label for="file" class="form-label">File Upload</label>
+         <div class="square-upload">
+        <span class="drag-drop-text">Drag and drop a file here or click to upload</span>
+        <input type="file" class="form-control-file" name="file" id="file">
+    </div>
+    <small id="filePreview" class="form-text text-muted"></small>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100" style="background-color: #ff5733; color: #fff;"><b>Analyze</b></button>
+                <div class="loading-spinner text-center mt-3">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bash-like output simulation -->
+        <div class="col-md-6">
+            <div id="bash-output" class="bash-output">
+                <p>[INFO] Waiting for file input...</p>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Recent Analysis Results Section -->
+    
+    <div class="row">
+        {% for result in recent_results %}
+
+
+            <!-- Modal for detailed analysis -->
+            <div class="modal fade" id="resultModal{{ loop.index }}" tabindex="-1" aria-labelledby="resultModalLabel{{ loop.index }}" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="resultModalLabel{{ loop.index }}">Detailed Analysis for {{ result.file_name }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>Date:</strong> {{ result.scan_date }}</p>
+                            <p><strong>Detections:</strong> {{ result.positives }}/{{ result.total }}</p>
+                            <h5>Detections:</h5>
+                            <ul>
+                                {% for detection in result.detections %}
+                                    <li><strong>{{ detection.engine }}</strong>: {{ detection.result }} (Version: {{ detection.version }}, Update: {{ detection.update }})</li>
+                                {% endfor %}
+                                {% if result.positives > 0 %}
+                                    <span style="color: red;"><strong><h2><b>Malware</b></h2></strong></span>
+                                {% else %}
+                                    <span style="color: green;"><strong><h2><b>Benign</b></h2></strong></span>
+                                {% endif %}
+                            </ul>
+                            <canvas id="modalDetectionChart{{ loop.index }}" style="width: 400px; height: 400px;"></canvas> <!-- Reduced canvas size for modal -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Toggle dark mode
+    const toggleDarkModeBtn = document.getElementById('toggleDarkMode');
+    const body = document.body;
+    function toggleDarkMode() {
+        body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+        toggleDarkModeBtn.innerHTML = body.classList.contains('dark-mode') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    }
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+    }
+    toggleDarkModeBtn.addEventListener('click', toggleDarkMode);
+</script>
 </body>
 </html>
+
+
 
