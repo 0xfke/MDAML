@@ -74,13 +74,13 @@ The results demonstrate high performance for both training and validation sets, 
 
 To assess the model's performance over different training set sizes, we generated learning curves. These curves help visualize how the model's accuracy evolves as more training data is added.
 
-![Learning Curves](path/to/learning_curves_image.png)
+![Learning Curves](Image/bar3.png) 
 
 ### Training and Validation Scores by Training Set Size
 
 The bar chart below displays the average training and validation scores along with their standard deviations across various training set sizes.
 
-![Training and Validation Scores](path/to/training_validation_scores_image.png)
+![Training and Validation Scores](Image/bar4.png)
 
 ---
 
