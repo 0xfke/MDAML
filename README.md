@@ -10,9 +10,14 @@ Malware Detection and Analysis using Machine Learning WebApp is a robust tool de
 - [Contributing](#contributing)
 - [License](#license)
 
-## Features
+
 
 ### Static Analysis using API
+- [Static Analysis using API](#static-analysis-using-api)
+- [Technologies Used](#technologies-used)
+- [File Types Supported](#file-types-supported)
+- [DEMO](#demo)
+  
 - Allows quick, static analysis of files, URLs, and hashes by leveraging VirusTotal’s extensive threat intelligence database.
 - This tool integrates two key methods to detect potential threats, providing users with a comprehensive approach to assess security risks.
 
