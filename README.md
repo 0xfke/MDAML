@@ -21,6 +21,76 @@ Malware Detection and Analysis using Machine Learning WebApp is a robust tool de
 - Allows quick, static analysis of files, URLs, and hashes by leveraging VirusTotal’s extensive threat intelligence database.
 - This tool integrates two key methods to detect potential threats, providing users with a comprehensive approach to assess security risks.
 
+## Static Analysis using API
+
+The **Static Analysis using API** component provides a fast and effective way to analyze files, URLs, and hashes by leveraging the VirusTotal API. This feature allows users to submit files or URLs and receive detailed threat intelligence, enhancing their ability to quickly identify potential security risks.
+
+---
+
+### Technologies Used
+
+This module uses the following technologies:
+
+- **Flask**: A micro web framework to build the web interface and handle user requests.
+- **VirusTotal API**: Provides access to a comprehensive database of known malware signatures and threat intelligence.
+- **Python**: The core programming language used for handling file processing, API requests, and responses.
+- **Jinja2**: A templating engine used to render HTML templates and display results.
+
+---
+
+### File Types Supported
+
+The tool supports the following file types for static analysis:
+
+- **Executable files**: `.exe`, `.dll`
+- **Archive files**: `.zip`, `.tar`
+- **Other supported formats**: Files or URLs compatible with VirusTotal API
+
+---
+
+### DEMO
+
+Below is a quick walkthrough demonstrating the **Static Analysis using API** feature in action.
+
+**Upload Page**  
+![Upload Page](path/to/upload_page_image.png)  
+*Description: A user selects a file from their local directory for analysis.*
+
+**Result Page**  
+![Result Page](path/to/result_page_image.png)  
+*Description: Analysis results showing threat intelligence based on VirusTotal’s database.*
+
+> **Video Demo**  
+> For a more detailed demonstration, watch the video below:  
+> [![Watch the Demo](path/to/video_thumbnail.png)](link_to_video)
+
+---
+
+### How It Works
+
+1. **User Input**: The user uploads a file or provides a URL for analysis.
+2. **VirusTotal API Integration**: The application sends the file or URL to VirusTotal's API to fetch any associated threat intelligence data.
+3. **Result Display**: The retrieved information is processed and displayed on the results page, which includes:
+    - **Scan Date**: Date of the last scan for the submitted file/URL.
+    - **Detection Ratio**: Ratio of the VirusTotal engines that detected a threat.
+    - **Detailed Results**: A breakdown of results from different scanning engines.
+
+---
+
+### Benefits of Static Analysis using API
+
+- **Quick Detection**: Allows immediate scanning using a reliable external threat database.
+- **Automated Insights**: Fetches relevant intelligence data without requiring manual lookup.
+- **Comprehensive Detection**: Aggregates results from multiple sources to improve detection accuracy.
+
+This tool integrates two key methods to detect potential threats, providing users with a comprehensive approach to assess security risks.
+
+---
+
+**Note**: The VirusTotal API has rate limits, so depending on usage, some requests may experience throttling or delayed responses. Refer to the [VirusTotal API documentation](https://developers.virustotal.com/) for more details on rate limits and usage policies.
+
+---
+
 
 
 
