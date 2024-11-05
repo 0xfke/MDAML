@@ -5,15 +5,8 @@
 Malware Detection and Analysis using Machine Learning WebApp is a robust tool designed to provide users with an intuitive interface for analyzing and detecting malware in various file formats. This web app leverages both static analysis through the API and advanced machine learning techniques to ensure comprehensive threat assessment. MDAML is created to address the need for an accessible and user-friendly platform that enables efficient malware analysis for files, URLs, and executables.
 
 ## Table of Contents
-
-### Features
 - [Static Analysis using API](#static-analysis-using-api)
 - [Machine Learning-Based Detection](#machine-learning-based-detection)
-
-- [Technologies Used](#technologies-used)
-- [Feature Selection and Model Training](#feature-selection-and-model-training)
-- [File Types Supported](#file-types-supported)
-- [DEMO](#demo)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -27,6 +20,11 @@ Malware Detection and Analysis using Machine Learning WebApp is a robust tool de
 
 
 ### Machine Learning-Based Detection
+- [Machine Learning-Based Detection](#machine-learning-based-detection)
+- [Technologies Used](#technologies-used)
+- [Feature Selection and Model Training](#feature-selection-and-model-training)
+- [File Types Supported](#file-types-supported)
+- [DEMO](#demo)
 - Focused on executable files (.exe and .dll), using machine learning and feature extraction to identify malicious behavior.
 
 ## Technologies Used
