@@ -118,7 +118,8 @@ This module uses the following technologies:
 - **Flask**: Provides the web interface to upload files and view detection results.
 - **NumPy** and **Pandas**: For data manipulation and feature processing.
 - **Matplotlib**: To visualize model performance metrics and learning curves.
-
+- **pefile**: A Python module to parse and work with Portable Executable (PE) files. It allows extraction of metadata and header details, essential for feature extraction in malware detection.
+- **Joblib**: A library for efficient serialization of Python objects, particularly useful for saving and loading machine learning models, making it easier to deploy the trained model in production.
 ---
 
 ### Feature Selection and Model Training
@@ -189,15 +190,6 @@ This ML-based approach complements the static analysis, providing a comprehensiv
 
 
 
-## Technologies Used
-
-- Python
-- Flask
-- scikit-learn
-- pandas
-- pefile
-- Joblib
-
 ## Feature Selection and Model Training
 
 ### Selection of Features According to Their Importances
@@ -252,29 +244,3 @@ The bar chart below displays the average training and validation scores along wi
 ---
 
 By analyzing these scores and visualizations, we gain insight into the model's learning behavior and can make informed decisions for further improvements.
-
-
-
-
-## DEMO
-
-
-
-## File Types Supported
-
-    Executable files: .exe, .dll
-    Archive files: .zip, .tar
-
-## Contributing
-
-Contributions are welcome! If you'd like to contribute, please follow these steps:
-
-    Fork the repository.
-    Create a new branch (git checkout -b feature/YourFeature).
-    Make your changes and commit them (git commit -m 'Add some feature').
-    Push to the branch (git push origin feature/YourFeature).
-    Open a pull request.
-
-License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
