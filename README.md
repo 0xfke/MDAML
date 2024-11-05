@@ -13,8 +13,8 @@ Malware Detection and Analysis using Machine Learning WebApp is a robust tool de
 # Static Analysis using API
 - [Static Analysis using API](#static-analysis-using-api)
 - [Technologies Used by Static](#technologies-used-by-static)
-- [File Types Supported](#file-types-supported)
-- [DEMO](#demo)
+- [File Types Supported by Static](#file-types-supported-by-static)
+- [DEMO Static](#demo-static)
 
 
 ## Static Analysis using API
@@ -34,7 +34,7 @@ This module uses the following technologies:
 
 ---
 
-### File Types Supported
+### File Types Supported by Static
 
 The tool supports the following file types for static analysis:
 
@@ -44,7 +44,7 @@ The tool supports the following file types for static analysis:
 
 ---
 
-### DEMO
+### DEMO Static
 
 Below is a quick walkthrough demonstrating the **Static Analysis using API** feature in action.
 
@@ -95,8 +95,8 @@ This tool integrates two key methods to detect potential threats, providing user
 - [Machine Learning-Based Detection](#machine-learning-based-detection)
 - [Technologies Used by ML](#technologies-used-by-ml)
 - [Feature Selection and Model Training](#feature-selection-and-model-training)
-- [File Types Supported](#file-types-supported)
-- [DEMO](#demo)
+- [File Types Supported by ML](#file-types-supported-by-ml)
+- [DEMO ML](#demo-ml)
 
 
 ## Machine Learning-Based Detection
