@@ -70,7 +70,7 @@ Below is a quick walkthrough demonstrating the **Static Analysis using API** fea
     - **Scan Date**: Date of the last scan for the submitted file/URL.
     - **Detection Ratio**: Ratio of the VirusTotal engines that detected a threat.
     - **Detailed Results**: A breakdown of results from different scanning engines.
-
+![apiworkflow](Image/apiworkflow.png)
 ---
 
 ### Benefits of Static Analysis using API
