@@ -40,8 +40,12 @@ Malware Detection and Analysis using Machine Learning WebApp is a robust tool de
 ### Selection of Features According to Their Importances
 
 Using a Random Forest Classifier, we evaluated the importance of different features to identify the most significant ones for malware detection. By filtering the features based on their importances, we set a threshold to select only the most relevant features for training our model. This approach enhances the model's efficiency and accuracy.
+### Before Selection of Features According to Their Importances
+![Feature Importances](Image/bar1.png) 
 
-![Feature Importances](Image/bar1.png) ![Feature Importances](Image/bar2.png)
+### After Selection of Features According to Their Importances
+
+![Feature Importances](Image/bar2.png)
 
 
 ### Training a New Model Based on Important Features
