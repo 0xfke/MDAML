@@ -35,49 +35,55 @@ The Malware Analysis and Detection web app is created to address the need for an
 - HTML/CSS
 - JavaScript
 
-## Installation
+## Feature Selection and Model Training
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/malware-analysis-webapp.git
-2. Navigate into the project directory:
+### Selection of Features According to Their Importances
 
-   ```bash
-   cd malware-analysis-webapp
+Using a Random Forest Classifier, we evaluated the importance of different features to identify the most significant ones for malware detection. By filtering the features based on their importances, we set a threshold to select only the most relevant features for training our model. This approach enhances the model's efficiency and accuracy.
 
-3. Create a virtual environment (optional but recommended):
-   ```bash
-   python -m venv venv
+![Feature Importances](path/to/feature_importances_image.png)
 
-4. Activate the virtual environment:
+### Training a New Model Based on Important Features
 
- On Windows:
- bash 
+After selecting the important features, we trained a new model, which yielded the following classification metrics:
 
-    venv\Scripts\activate
+| Class    | Precision | Recall | F1-Score | Support |
+|----------|-----------|--------|----------|---------|
+| Benign   | 1.00      | 0.97   | 0.98     | 1003    |
+| Malware  | 0.99      | 1.00   | 0.99     | 2920    |
+| **Accuracy**     | **0.99**  |        |          | **3923**    |
+| Macro Avg| 0.99      | 0.98   | 0.99     | 3923    |
+| Weighted Avg| 0.99   | 0.99   | 0.99     | 3923    |
 
-On macOS/Linux:
-bash
+**Training Scores:**  
+The average training score is approximately 99.13%.
 
-    source venv/bin/activate
+**Validation Scores:**  
+The average validation score is around 98.63%.
 
-5. Install the required packages:
+The results demonstrate high performance for both training and validation sets, with only a slight discrepancy of 0.51%.
 
-bash
+### Analysis
 
-    pip install -r requirements.txt
+- **No Overfitting:** The close alignment of training and validation scores indicates that the model is likely not overfitting. In cases of significant overfitting, we would expect a higher training score compared to the validation score.
+  
+- **Slight Underfitting Possibility:** While the validation score is marginally lower than the training score, indicating a slight potential for underfitting, the difference is minimal.
 
-## Usage
+### Learning Curves
 
-   Run the Flask application:
+To assess the model's performance over different training set sizes, we generated learning curves. These curves help visualize how the model's accuracy evolves as more training data is added.
 
-   bash
+![Learning Curves](path/to/learning_curves_image.png)
 
-    python app.py
+### Training and Validation Scores by Training Set Size
 
-    Open your web browser and go to http://127.0.0.1:5001.
-    Upload a file for analysis by selecting it from your local file system and clicking the Analyze button.
-    View the results of the analysis on the result page.
+The bar chart below displays the average training and validation scores along with their standard deviations across various training set sizes.
+
+![Training and Validation Scores](path/to/training_validation_scores_image.png)
+
+---
+
+By analyzing these scores and visualizations, we gain insight into the model's learning behavior and can make informed decisions for further improvements.
 
 ## File Types Supported
 
