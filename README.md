@@ -40,3 +40,65 @@ The Malware Analysis and Detection web app is created to address the need for an
 1. Clone the repository:
    ```bash
    git clone https://github.com/YOUR_USERNAME/malware-analysis-webapp.git
+2. Navigate into the project directory:
+
+   ```bash
+   cd malware-analysis-webapp
+
+3. Create a virtual environment (optional but recommended):
+   ```bash
+   python -m venv venv
+
+4. Activate the virtual environment:
+
+ On Windows:
+ bash 
+
+    venv\Scripts\activate
+
+On macOS/Linux:
+bash
+
+    source venv/bin/activate
+
+5. Install the required packages:
+
+bash
+
+    pip install -r requirements.txt
+
+## Usage
+
+   Run the Flask application:
+
+   bash
+
+    python app.py
+
+    Open your web browser and go to http://127.0.0.1:5001.
+    Upload a file for analysis by selecting it from your local file system and clicking the Analyze button.
+    View the results of the analysis on the result page.
+
+## File Types Supported
+
+    Executable files: .exe, .dll
+    Archive files: .zip, .tar
+
+Screenshots
+Upload Page
+
+Analysis Results
+
+Contributing
+
+Contributions are welcome! If you'd like to contribute, please follow these steps:
+
+    Fork the repository.
+    Create a new branch (git checkout -b feature/YourFeature).
+    Make your changes and commit them (git commit -m 'Add some feature').
+    Push to the branch (git push origin feature/YourFeature).
+    Open a pull request.
+
+License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
