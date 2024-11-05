@@ -1,0 +1,9 @@
+Flask==3.0.3
+joblib==1.4.2
+jupyter==1.1.1
+jupyterlab==4.2.5
+matplotlib-inline==0.1.7
+numpy==2.1.2
+pandas==2.2.3
+pefile==2024.8.26
+requests==2.32.3
