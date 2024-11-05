@@ -33,9 +33,7 @@ Malware Detection and Analysis using Machine Learning WebApp is a robust tool de
 - scikit-learn
 - pandas
 - pefile
-- Jinja2
-- HTML/CSS
-- JavaScript
+- Joblib
 
 ## Feature Selection and Model Training
 
