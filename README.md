@@ -166,7 +166,7 @@ Below is a visual walkthrough showing how the **Machine Learning-Based Detection
 2. **Feature Extraction**: The system extracts PE header features and selects only the most important features based on prior analysis.
 3. **Model Prediction**: The Random Forest model uses the extracted features to predict if the file is benign or malicious.
 4. **Result Display**: The application displays the result on a user-friendly interface, including probability scores and model confidence.
-
+   ![ML workflow](Image/mlworkflow.png)
 ---
 
 ### Benefits of Machine Learning-Based Detection
