@@ -38,9 +38,8 @@ This module uses the following technologies:
 
 The tool supports the following file types for static analysis:
 
-- **Executable files**: `.exe`, `.dll`
-- **Archive files**: `.zip`, `.tar`
-- **Other supported formats**: Files or URLs compatible with VirusTotal API
+- **Files**: all
+- **Other supported formats**: File hashs and URLs compatible with VirusTotal API
 
 ---
 
