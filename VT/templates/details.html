@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Analysis Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f7fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .result-card {
+            transition: transform 0.2s ease;
+        }
+
+        .result-card:hover {
+            transform: scale(1.02);
+        }
+
+        .btn-back {
+            background-image: linear-gradient(45deg, #1d8cf8, #3358f4);
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background-image: linear-gradient(45deg, #3358f4, #1d8cf8);
+        }
+
+        .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .success-banner, .danger-banner {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .success-banner {
+            background-color: #d4edda;
+            color: #155724;
+            border: 2px solid green;
+        }
+
+        .danger-banner {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Detailed Analysis Result</h1>
+
+    <div class="card result-card shadow-lg">
+        <div class="card-body">
+            <h5 class="card-title text-primary">Scan Date: {{ result.scan_date }}</h5>
+            <p class="card-text">SHA-256: <strong>{{ result.sha256 }}</strong></p>
+            <p class="card-text">MD5: <strong>{{ result.md5 }}</strong></p>
+            <p class="card-text">SHA-1: <strong>{{ result.sha1 }}</strong></p>
+            <p class="card-text">Detections: <strong>{{ result.positives }}</strong> / {{ result.total }}</p>
+            <hr>
+            <ul class="list-group list-group-flush">
+                {% for engine, details in result.scans.items() %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>
+                            <strong>{{ engine }}:</strong> {{ details.result }}
+                            (Version: {{ details.version }}, Update: {{ details.update }})
+                        </span>
+                        {% if details.detected %}
+                            <i class="bi bi-virus text-danger"></i>
+                        {% else %}
+                            <i class="bi bi-shield-check text-success"></i>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="{{ url_for('index') }}" class="btn btn-back btn-lg shadow">
+            <i class="bi bi-arrow-left-circle"></i> Back to Home
+        </a>
+    </div>
+</div>
+
+<div class="footer">
+    &copy; 2024 Malware Analysis Tool. All Rights Reserved B & L.
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+</body>
+</html>
