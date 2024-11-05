@@ -12,7 +12,7 @@ Malware Detection and Analysis using Machine Learning WebApp is a robust tool de
 
 
 
-### Static Analysis using API
+# Static Analysis using API
 - [Static Analysis using API](#static-analysis-using-api)
 - [Technologies Used](#technologies-used)
 - [File Types Supported](#file-types-supported)
@@ -24,7 +24,7 @@ Malware Detection and Analysis using Machine Learning WebApp is a robust tool de
 
 
 
-### Machine Learning-Based Detection
+# Machine Learning-Based Detection
 - [Machine Learning-Based Detection](#machine-learning-based-detection)
 - [Technologies Used](#technologies-used)
 - [Feature Selection and Model Training](#feature-selection-and-model-training)
