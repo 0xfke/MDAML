@@ -151,7 +151,7 @@ This feature is specifically designed for the following file types:
 Below is a visual walkthrough showing how the **Machine Learning-Based Detection** feature works.
 
 **Upload Page**  
-![Upload Page](path/to/upload_page_image.png)  
+![Upload Page](Image/mlw.png)  
 *Description: The user selects an executable file for analysis.*
 
 **Analysis Results**  
