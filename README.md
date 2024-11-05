@@ -142,7 +142,7 @@ This feature is specifically designed for the following file types:
 
 ---
 
-### DEMO
+### DEMO ML
 
 Below is a visual walkthrough showing how the **Machine Learning-Based Detection** feature works.
 
