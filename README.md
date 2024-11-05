@@ -1,6 +1,6 @@
 # Malware Analysis Web Application
 
-![Project Banner](path/to/your/banner/image.png)
+![Project Banner](Image/Staticw.png)
 
 The Malware Analysis and Detection web app is created to address the need for an accessible and user-friendly platform that enables efficient malware analysis for files, URLs, and executables.
 
