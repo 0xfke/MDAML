@@ -19,7 +19,10 @@ The Malware Analysis and Detection web app is created to address the need for an
 ### Static Analysis using API
 - Allows quick, static analysis of files, URLs, and hashes by leveraging VirusTotal’s extensive threat intelligence database.
 - This tool integrates two key methods to detect potential threats, providing users with a comprehensive approach to assess security risks.
+
 ![Video](Video/api.mp4)
+
+
 ### Machine Learning-Based Detection
 - Focused on executable files (.exe and .dll), using machine learning and feature extraction to identify malicious behavior.
 
