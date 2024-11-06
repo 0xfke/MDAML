@@ -243,7 +243,8 @@ By analyzing these scores and visualizations, we gain insight into the model's l
 
 ## 🔮 Future Work
 
-- [x] **Expand Machine Learning Capabilities**
+- [ ] **Expand Machine Learning Capabilities**
+    
 - [ ] **Add Additional File Type Support**
 
 - [ ] **Integrate Dynamic Analysis**
