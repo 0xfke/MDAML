@@ -234,6 +234,13 @@ To assess the model's performance over different training set sizes, we generate
 
 The bar chart below displays the average training and validation scores along with their standard deviations across various training set sizes.
 
+![Training and Validation Scores](Image/bar4.png)
+
+---
+
+By analyzing these scores and visualizations, we gain insight into the model's learning behavior and can make informed decisions for further improvements.
+
+
 ## 🔮 Future Work
 
 - [ ] **Expand Machine Learning Capabilities**
@@ -265,10 +272,3 @@ The bar chart below displays the average training and validation scores along wi
 
 - [ ] **Mobile and Cross-Platform Compatibility**
   - [ ] Develop mobile app versions for iOS and Android for easy access to analysis features on-the-go.
-
-
-![Training and Validation Scores](Image/bar4.png)
-
----
-
-By analyzing these scores and visualizations, we gain insight into the model's learning behavior and can make informed decisions for further improvements.
