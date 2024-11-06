@@ -243,13 +243,8 @@ By analyzing these scores and visualizations, we gain insight into the model's l
 
 ## 🔮 Future Work
 
-- [ ] **Expand Machine Learning Capabilities**
-  - [ ] Fine-tune model hyperparameters for improved detection accuracy.
-  - [ ] Experiment with different machine learning algorithms (e.g., SVM, gradient boosting) to compare performance.
-
+- [-] **Expand Machine Learning Capabilities**
 - [ ] **Add Additional File Type Support**
-  - [ ] Enable feature extraction and analysis for other executable formats (e.g., ELF for Linux).
-  - [ ] Support for compressed and encrypted archive formats.
 
 - [ ] **Integrate Dynamic Analysis**
   - [ ] Implement sandboxed environments for real-time behavioral analysis of files.
@@ -258,17 +253,3 @@ By analyzing these scores and visualizations, we gain insight into the model's l
 - [ ] **Enhance the User Interface**
   - [ ] Develop a dashboard for detailed analysis results, including threat history and patterns.
   - [ ] Provide visual insights like heatmaps, trend graphs, and risk scores.
-
-- [ ] **Introduce a Threat Intelligence Feed**
-  - [ ] Regularly update threat intelligence feeds to keep detection algorithms current with emerging threats.
-  - [ ] Integrate sources like MITRE ATT&CK for improved attack context.
-
-- [ ] **Deploy Machine Learning Model to Cloud**
-  - [ ] Use cloud platforms (e.g., AWS, GCP) to handle large file analysis and reduce local computing load.
-  - [ ] Enable model retraining on cloud for continuous improvements.
-
-- [ ] **Add Multi-Language Support**
-  - [ ] Support multiple languages in the UI to make the app accessible globally.
-
-- [ ] **Mobile and Cross-Platform Compatibility**
-  - [ ] Develop mobile app versions for iOS and Android for easy access to analysis features on-the-go.
