@@ -241,13 +241,8 @@ The bar chart below displays the average training and validation scores along wi
 
 By analyzing these scores and visualizations, we gain insight into the model's learning behavior and can make informed decisions for further improvements.
 
-### Contributer
-- @latiko
-- @0xfke
 
 ## Contributors ✨
-
-Thanks to these people for their contributions:
 
 <table>
   <tr>
