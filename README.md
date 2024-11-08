@@ -6,7 +6,7 @@ Malware Detection and Analysis using Machine Learning WebApp is a robust tool de
 - [Static Analysis using API](#static-analysis-using-api)
 - [Machine Learning-Based Detection](#machine-learning-based-detection)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 
 
@@ -240,6 +240,8 @@ The bar chart below displays the average training and validation scores along wi
 ---
 
 By analyzing these scores and visualizations, we gain insight into the model's learning behavior and can make informed decisions for further improvements.
+
+# Contributed
 
 
 ## 🔮 Future Work
