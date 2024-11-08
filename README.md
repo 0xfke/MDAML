@@ -27,10 +27,10 @@ The **Static Analysis using API** component provides a fast and effective way to
 
 This module uses the following technologies:
 
-- **Flask**: A micro web framework to build the web interface and handle user requests.
-- **VirusTotal API**: Provides access to a comprehensive database of known malware signatures and threat intelligence.
-- **Python**: The core programming language used for handling file processing, API requests, and responses.
-- **Jinja2**: A templating engine used to render HTML templates and display results.
+- **Flask**
+- **VirusTotal API**
+- **Python**
+- **requests**
 
 ---
 
@@ -108,13 +108,14 @@ The **Machine Learning-Based Detection** component leverages a machine learning 
 
 This module uses the following technologies:
 
-- **Python**: The core programming language for implementing feature extraction and model training.
-- **Scikit-Learn**: Used to train and evaluate the machine learning model, specifically the Random Forest Classifier.
-- **Flask**: Provides the web interface to upload files and view detection results.
-- **NumPy** and **Pandas**: For data manipulation and feature processing.
-- **Matplotlib**: To visualize model performance metrics and learning curves.
-- **pefile**: A Python module to parse and work with Portable Executable (PE) files. It allows extraction of metadata and header details, essential for feature extraction in malware detection.
-- **Joblib**: A library for efficient serialization of Python objects, particularly useful for saving and loading machine learning models, making it easier to deploy the trained model in production.
+- **Python**
+- **Scikit-Learn**
+- **Flask**
+- **NumPy**
+- **Pandas**
+- **Matplotlib**
+- **pefile**
+- **Joblib**
 ---
 
 ### Feature Selection and Model Training
