@@ -244,6 +244,21 @@ By analyzing these scores and visualizations, we gain insight into the model's l
 ### Contributer
 - @latiko
 - @0xfke
+
+## Contributors ✨
+
+Thanks to these people for their contributions:
+
+<table>
+  <tr>
+    
+<td align="center"><a href="https://github.com/latiko"><img src="https://avatars.githubusercontent.com/latiko?v=4" width="100px;" alt=""/><br /><sub><b>latiko</b></sub></a><br />💻</td>
+<td align="center"><a href="https://github.com/0xfke"><img src="https://avatars.githubusercontent.com/0xfke?v=4" width="100px;" alt=""/><br /><sub><b>0xfke</b></sub></a><br />💻</td>
+   
+  </tr>
+</table>
+
+
 ## 🔮 Future Work
 
 - [ ] **Expand Machine Learning Capabilities**
